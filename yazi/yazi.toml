@@ -1,0 +1,10 @@
+[opener]
+json = [
+    { run = 'jless "$@"', block = true, desc = "View JSON" },
+    { run = 'nvim "$@"', block = true, desc = "Edit with nvim" },
+]
+
+[open]
+rules = [
+    { mime = "application/json", use = "json" },
+]
