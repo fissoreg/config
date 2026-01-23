@@ -5,6 +5,6 @@ json = [
 ]
 
 [open]
-rules = [
+prepend_rules = [
     { mime = "application/json", use = "json" },
 ]
