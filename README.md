@@ -1,5 +1,18 @@
 # config
 
+Personal dotfiles and tool configs.
+
+| Tool | What | Config |
+|------|------|--------|
+| **tmux** | Terminal multiplexer. Ctrl+Space prefix, vim nav, tmux-thumbs for vimium-style link hints | `tmux.conf` |
+| **fish** | Shell. Custom functions for Docker sandboxing (AI agents) | `fish/` |
+| **nvim** | Editor. Lazy.nvim, [agent-review.nvim](https://github.com/fissoreg/agent-review.nvim) for reviewing AI agent diffs, diffview.nvim | `nvim/` |
+| **karabiner** | macOS keyboard remapping | `karabiner.json` |
+| **sandboxd** | Docker sandbox network policy | `sandboxd/` |
+| **yazi** | Terminal file manager. Opens JSON with jless | `yazi/` |
+
+---
+
 ## Karabiner
 
 ```bash
@@ -13,8 +26,7 @@ mkdir -p ~/.config/karabiner && cp karabiner.json ~/.config/karabiner/
 mkdir -p ~/.config/fish/functions
 ln -sf ~/repos/config/fish/functions/sandbox.fish ~/.config/fish/functions/
 ln -sf ~/repos/config/fish/functions/sandbox-open-network.fish ~/.config/fish/functions/
-
-# Global network policy (allow all public internet for new sandboxes)
+# Global network policy
 mkdir -p ~/.sandboxd
 ln -sf ~/repos/config/sandboxd/proxy-config.json ~/.sandboxd/
 
