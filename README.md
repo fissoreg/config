@@ -10,6 +10,7 @@ Personal dotfiles and tool configs.
 | **karabiner** | macOS keyboard remapping | `karabiner.json` |
 | **sandboxd** | Docker sandbox network policy | `sandboxd/` |
 | **yazi** | Terminal file manager. Opens JSON with jless | `yazi/` |
+| **ngrok** | TCP tunnel to expose SSH (port 22) to the internet for remote access | `ngrok/` |
 
 ---
 
@@ -41,3 +42,4 @@ Usage:
 - `sandbox . -- -p "task" --max-turns 20` -- headless autonomous
 - `sandbox-open-network <name>` -- open network for specific sandbox
 - `sandbox-open-network --default` -- set global default
+
