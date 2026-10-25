@@ -14,6 +14,42 @@ Personal dotfiles and tool configs.
 
 ---
 
+## tmux
+
+`~/.tmux.conf` is a symlink to `~/repos/config/tmux.conf`. The config and
+bindings live in this repo; TPM and plugin binaries are installed separately
+under `~/.tmux/plugins/`.
+
+Setup on macOS (requires tmux, Git, and Rust/Cargo):
+
+```bash
+# Create the symlink if ~/.tmux.conf does not already exist.
+ln -s ~/repos/config/tmux.conf ~/.tmux.conf
+# Clone each dependency only if its directory does not already exist.
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/fcsonline/tmux-thumbs ~/.tmux/plugins/tmux-thumbs
+(cd ~/.tmux/plugins/tmux-thumbs && cargo build --release --locked)
+# Reload an existing tmux server, or start tmux normally for a fresh server.
+tmux source-file ~/.tmux.conf
+```
+
+The prefix is **Ctrl+Space**, followed by:
+
+| Key | Action |
+|-----|--------|
+| Space | Highlight URLs and other matches in the visible pane; lowercase hint copies, uppercase hint opens |
+| h / j / k / l | Move between panes |
+| H / J / K / L | Resize panes |
+| [ | Enter Vim copy mode; `v` selects and `y` copies to the macOS clipboard |
+| r | Reload the config |
+| I | Install plugins declared in the config |
+| U | Update plugins; rebuild tmux-thumbs with the Cargo command above if it changes |
+
+An existing server keeps its old tmux version after a binary upgrade. CSI-u
+extended-key output is enabled on tmux 3.5 and newer; the version check lets
+older running servers reload the same config without errors. A new server
+uses the updated binary after all sessions on the old server have exited.
+
 ## Karabiner
 
 ```bash
