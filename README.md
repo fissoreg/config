@@ -2,6 +2,8 @@
 
 Personal dotfiles and tool configs.
 
+Run setup commands from the root of your local clone of this config repo.
+
 | Tool | What | Config |
 |------|------|--------|
 | **tmux** | Terminal multiplexer. Ctrl+Space prefix, vim nav, tmux-thumbs for vimium-style link hints | `tmux.conf` |
@@ -16,15 +18,14 @@ Personal dotfiles and tool configs.
 
 ## tmux
 
-`~/.tmux.conf` is a symlink to `~/repos/config/tmux.conf`. The config and
-bindings live in this repo; TPM and plugin binaries are installed separately
-under `~/.tmux/plugins/`.
+`~/.tmux.conf` can be symlinked to `tmux.conf` in your local clone of this repo.
+TPM and plugin binaries are installed separately under `~/.tmux/plugins/`.
 
 Setup on macOS (requires tmux, Git, and Rust/Cargo):
 
 ```bash
 # Create the symlink if ~/.tmux.conf does not already exist.
-ln -s ~/repos/config/tmux.conf ~/.tmux.conf
+ln -s "$PWD/tmux.conf" ~/.tmux.conf
 # Clone each dependency only if its directory does not already exist.
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone https://github.com/fcsonline/tmux-thumbs ~/.tmux/plugins/tmux-thumbs
@@ -61,11 +62,11 @@ mkdir -p ~/.config/karabiner && cp karabiner.json ~/.config/karabiner/
 ```bash
 # Fish functions
 mkdir -p ~/.config/fish/functions
-ln -sf ~/repos/config/fish/functions/sandbox.fish ~/.config/fish/functions/
-ln -sf ~/repos/config/fish/functions/sandbox-open-network.fish ~/.config/fish/functions/
+ln -sf "$PWD/fish/functions/sandbox.fish" ~/.config/fish/functions/
+ln -sf "$PWD/fish/functions/sandbox-open-network.fish" ~/.config/fish/functions/
 # Global network policy
 mkdir -p ~/.sandboxd
-ln -sf ~/repos/config/sandboxd/proxy-config.json ~/.sandboxd/
+ln -sf "$PWD/sandboxd/proxy-config.json" ~/.sandboxd/
 
 # Set global default
 sandbox-open-network --default
@@ -73,7 +74,7 @@ sandbox-open-network --default
 
 Usage:
 - `sandbox` -- Claude Code on current dir
-- `sandbox ~/repos/my-project` -- Claude on specific repo
+- `sandbox /path/to/project` -- Claude on specific repo
 - `sandbox --opencode` -- OpenCode instead
 - `sandbox . -- -p "task" --max-turns 20` -- headless autonomous
 - `sandbox-open-network <name>` -- open network for specific sandbox
