@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "personal_email": {
+      "command": "/Users/giancarlofissore/repos/config/local-model-subagent/email-subagent.mcp.sh",
+      "exposure": "direct",
+      "description": "Personal email via local-model sub-agent. email_lookup / email_digest / email_draft / queue_status. Reads personal email only; never sends."
+    },
+    "work_email": {
+      "_comment": "Work email can stay a direct, raw MCP server for trusted local callers (e.g. a local pi). Only the sensitive personal account sits behind the sub-agent.",
+      "command": "/opt/homebrew/bin/uvx",
+      "args": ["mcp-email-server", "stdio"],
+      "env": { "MCP_EMAIL_SERVER_CONFIG_PATH": "/path/to/work-email/config.toml" }
+    }
+  }
+}

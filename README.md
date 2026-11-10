@@ -13,6 +13,7 @@ Run setup commands from the root of your local clone of this config repo.
 | **sandboxd** | Docker sandbox network policy | `sandboxd/` |
 | **yazi** | Terminal file manager. Opens JSON with jless | `yazi/` |
 | **ngrok** | TCP tunnel to expose SSH (port 22) to the internet for remote access | `ngrok/` |
+| **local-model-subagent** | Gateway so other agents use a **local model only** (e.g. personal email) — uvx-style stdio MCP + A2A, no daemon | `local-model-subagent/` |
 
 ---
 

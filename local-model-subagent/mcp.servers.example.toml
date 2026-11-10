@@ -1,0 +1,21 @@
+# Caller (e.g. Codex) MCP server config for the sub-agent gateway.
+# Personal email is the ONLY account behind the sub-agent. Work email can remain
+# a direct raw server if the caller is trusted. Map keys to your harness's format.
+
+[mcp_servers.personal_email]
+command = "/path/to/gateways/email-subagent/email-subagent.mcp.sh"
+startup_timeout_sec = 120
+tool_timeout_sec = 3600            # local 27B-class models can take minutes per task
+
+# Approve-on-use, matching your broader MCP policy (optional but recommended):
+[mcp_servers.personal_email.tools.email_lookup]
+approval_mode = "approve"
+
+[mcp_servers.personal_email.tools.email_digest]
+approval_mode = "approve"
+
+[mcp_servers.personal_email.tools.email_draft]
+approval_mode = "approve"
+
+[mcp_servers.personal_email.tools.queue_status]
+approval_mode = "approve"
