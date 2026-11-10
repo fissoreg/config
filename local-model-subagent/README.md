@@ -59,7 +59,7 @@ Caller config example (TOML-shaped server config; map to your harness's format):
 
 ```toml
 [mcp_servers.personal_email]
-command = "/path/to/gateways/email-subagent/email-subagent.mcp.sh"
+command = "/Users/giancarlofissore/repos/config/local-model-subagent/email-subagent.mcp.sh"
 startup_timeout_sec = 120
 tool_timeout_sec = 3600        # local 27B-class models can take minutes per task
 
@@ -78,7 +78,7 @@ JSON-shaped (pi `mcp.json` / generic):
 {
   "mcpServers": {
     "personal_email": {
-      "command": "/path/to/gateways/email-subagent/email-subagent.mcp.sh",
+      "command": "/Users/giancarlofissore/repos/config/local-model-subagent/email-subagent.mcp.sh",
       "exposure": "direct",
       "description": "Personal email via local-model sub-agent. email_lookup / email_digest / email_draft / queue_status. Never sends."
     }

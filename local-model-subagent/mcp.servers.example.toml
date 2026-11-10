@@ -3,7 +3,7 @@
 # a direct raw server if the caller is trusted. Map keys to your harness's format.
 
 [mcp_servers.personal_email]
-command = "/path/to/gateways/email-subagent/email-subagent.mcp.sh"
+command = "/Users/giancarlofissore/repos/config/local-model-subagent/email-subagent.mcp.sh"
 startup_timeout_sec = 120
 tool_timeout_sec = 3600            # local 27B-class models can take minutes per task
 
